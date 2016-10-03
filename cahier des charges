@@ -1,0 +1,89 @@
+Séance de travail par équipe - 
+Bien comprendre le cahier des charges - 
+Réflexions sur les questions suivantes : 
+Quel(s) service(s) du secteur « Services à la personne » ? Quelle application ? 
+Quelle répartition des rôles dans l’équipe : qui fait quoi ?
+- Choix des outils à utiliser (lesquels ? Pourquoi ?)
+
+service  a la personne :
+
+- esthétique, soins maquillage.
+- 
+- site internet responsive 
+- outils: mysql, php, css, html, javascript,jquery, ajax, json,  bootstrap responsive, git, sublime text, mama, xamp, wamp, sublime text , netbeans, note pad ++, apache
+- nicolas : mysql base de donnée, mcd .
+- quentin: front end 
+- pascal: back end
+- massoma:front end
+- maïssane: back end 
+- fonctionnalité du site :
+    - condition d’utilisation du site.
+    - pop up cookies
+    - demande autorisation pour la géolocalisation.
+    - client: 
+        - inscription
+            - nom
+            - prénom
+            - sexe
+            - adresse email
+            - mot de passe 
+            - date de naissance
+            - adresse
+            - adresse de facturation 
+            - moyen de paiement
+            - photo (facultative)
+            - description(facultative)
+        - connexion
+            - email
+            - mot de passe
+        - profil
+            - modification du profil
+            - modification du moyen de paiement
+            - liste des prestations commandées
+            - liste des factures
+            - réclamation 
+        - localisation
+        - recherche de professionnel en fonction d’un domaine et de la localisation
+            - formulaire
+                - choix du service
+                - géolocalisation ou adresse 
+        - paiement du service 
+        - notation et commentaire  des professionnels commandés
+            - système d’étoile
+            - commentaire
+    - professionnels:
+        - inscription
+            - nom 
+            - prénom
+            - certificat pro 
+            - email
+            - mot de passe
+            - adresse email
+            - mot de passe 
+            - date de naissance
+            - adresse
+            - RIB
+            - photo (facultative)
+            - description(facultative)
+            - prix par prestation
+        - connexion
+            - email 
+            - mot de passe
+        -  profil
+            - modification du profil
+            - modification des informations du compte
+            - liste dernières prestations effectué
+            - liste des factures
+            - réclamation.
+        - répondre aux demandes des clients 
+        - noter le client et commenter
+            - système d’étoile
+            - commentaire
+    - administrateur:
+        - gestion
+            - validation des comptes
+            - gestion des compte utilisateur.
+            - paiement.
+            - facture
+            - commentaire.
+            - gestion certificats professionnels
