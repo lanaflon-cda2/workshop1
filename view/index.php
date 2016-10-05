@@ -15,7 +15,7 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
     </head>
     <body>
-        <?php require_once 'view/topMenu.php';?>
+        <?php require_once 'view/topMenu.php'; ?>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -23,7 +23,7 @@
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
                 <li data-target="#myCarousel" data-slide-to="3"></li>
-				<li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
             </ol>
 
             <!-- Wrapper for slides -->
@@ -43,8 +43,8 @@
                         <p>N'attendez plus et recherchez un coiffeur.</p>
                     </div>
                 </div>
-				
-				<div class="item">
+
+                <div class="item">
                     <img src="img/Barbier.jpg" alt="Chania">
                     <div class="carousel-caption">
                         <h3>Besoin d'une barbe digne de ce nom?</h3>
@@ -79,15 +79,20 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-		<!-- Modal -->
+        <!-- Modal -->
         <?php
-            require_once 'view/modalInscription.php';
-            require_once 'view/footer.php';
+        require_once 'view/modalConnexion.php';
+        require_once 'view/modalInscription.php';
+        require_once 'view/footer.php';
         ?>
-                
+
         <script type="text/javascript">
             $('#myCarousel').carousel();
             $('#birthdate').datepicker();
+            $(".nav a").on("click", function () {
+                $(".nav").find(".active").removeClass("active");
+                $(this).parent().addClass("active");
+            });
         </script>
     </body>
 </html>

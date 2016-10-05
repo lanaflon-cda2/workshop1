@@ -20,7 +20,7 @@
             <div class="row col-md-6 col-md-offset-3" style="background-color:rgba(255,255,255,0.7)" >
                 <div id="login" class="col-md-6">
                     <h2>Déjà membre? Connectez vous!</h2>
-                    <form>
+                    <form action="index.php?action=connexion" method="post">
                         <div class="form-group">
                             <label class="col-md-12" for="email">E-mail</label>
                             <input id="email" class="col-md-1 form-control" type="email" name="email" placeholder="xxxxxx@xxx.com">
@@ -40,7 +40,10 @@
                 </div>  
             </div>
         </div>
-        <?php require_once 'modalInscription.php'; ?>
+        <?php 
+            require_once 'modalInscription.php'; 
+            require_once 'modalConnexion.php';
+        ?>
 
     </body>
 </html>

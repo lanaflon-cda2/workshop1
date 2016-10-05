@@ -7,14 +7,11 @@
  */
 
 /**
- * Description of ControleurCommander
+ * Description of ControleurProposition
  *
  * @author pascal
  */
-require_once 'modele/Modele.php';
-require_once 'modele/Profession.php';
-
-class ControleurCommander {
+class ControleurProposition {
     private $_idUser;
     private $_page;
     private $_command = 'commander';
@@ -23,21 +20,21 @@ class ControleurCommander {
     
     public function __construct(){
         if(isset($_SESSION['iduser'])){
-            $this->_page = $this->_command;
+            $this->_page = 'proposition';
         }
         else{
-            $this->_page = $this->_inscription;
+            $this->_page = 'inscription';
         }
         
     }
     public function display(){
-        //if($this->_page == $this->_command){
-            $modele = new Profession();
-            $professions=$modele->getProfession();
-            require_once 'view/commandView.php';
-        //}
-        //else{
-            //require_once 'view/inscriptionView.php';
-        //}
+        if($this->_page == 'commander'){
+           
+            require_once 'view/propositionView.php';
+        }
+        else{
+            require_once 'view/inscriptionView.php';
+        }
+        
     }
 }

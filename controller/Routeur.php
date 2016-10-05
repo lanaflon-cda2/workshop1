@@ -1,33 +1,36 @@
 <?php
 
-require_once 'Controleur/ControleurAccueil.php';
-require_once 'Controleur/ControleurBillet.php';
+require_once 'controller/ControllerAcceuil.php';
+require_once 'controller/controleurCommander.php';
+require_once 'controller/controleurProposition.php';
+/*require_once 'Controleur/ControleurBillet.php';
 require_once 'Controleur/ControleurInscription.php';
 require_once 'Controleur/ControleurVisiteur.php';
 require_once 'Controleur/ControleurProfil.php';
 require_once 'Controleur/ControleurConnexion.php';
-require_once 'Controleur/ControleurAdministrateur.php';
+require_once 'Controleur/ControleurAdministrateur.php';*/
 
-
-
-require_once 'Vue/Vue.php';
 class Routeur {
 
     private $ctrlAccueil;
-    private $ctrlInscription;
-    private $ctrlProfil;
-    private $ctrlConnexion;
-    private $ctrlAdmin;
-    private $ctrlVisiteur;
+    private $ctrlCommander;
+    private $ctrlProposer;
+    //private $ctrlInscription;
+    //private $ctrlProfil;
+    //private $ctrlConnexion;
+   // private $ctrlAdmin;
+    //private $ctrlVisiteur;
 
 
     public function __construct() {
         $this->ctrlAccueil = new ControleurAccueil();
-        $this->ctrlInscription = new ControleurInscription();
+        $this->ctrlCommander = new ControleurCommander ();
+        $this->ctrlProposer = new ControleurProposition();
+        /*$this->ctrlInscription = new ControleurInscription();
         $this->ctrlProfil= new ControleurProfil();
         $this->ctrlConnexion= new ControleurConnexion();
         $this->ctrlAdmin= new ControleurAdmin();
-        $this->ctrlVisiteur= new ControleurVisiteur();
+        $this->ctrlVisiteur= new ControleurVisiteur();*/
 
 
       session_start();
@@ -36,8 +39,9 @@ class Routeur {
     // Route une requête entrante : exécution l'action associée
     public function routerRequete() {
         try {
+            
             if (isset($_GET['action'])) {
-                if ($_GET['action']=='inscription') {
+               /* if ($_GET['action']=='inscription') {
                     $this->ctrlInscription->inscription();
 
                 }
@@ -82,11 +86,6 @@ class Routeur {
                 }
                 elseif ($_GET['action']=='deconnexion') {
                     $this->ctrlConnexion->deconnexion();
-                
-                }
-                 elseif ($_GET['action']=='visiteur') {
-     $this->ctrlVisiteur->visiteur("Visiteur");
-            
                 
                 }
                 else if ($_GET['action'] == 'commenter') {
@@ -152,6 +151,12 @@ class Routeur {
                  elseif ($_GET['action']=='voirprofil') {
                   $this->ctrlProfil->voirprofil();
 
+                }*/
+                if($_GET['action'] == 'proposer'){
+                    $this->ctrlProposer->display();
+                }
+                elseif($_GET['action'] == 'commander'){
+                    $this->ctrlCommander->display();
                 }
                 else
                     throw new Exception("Action non valide");
