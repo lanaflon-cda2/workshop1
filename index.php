@@ -8,9 +8,11 @@
         <link rel="stylesheet" href="js/bootstrap/css/bootstrap-theme.css" >
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css" rel="stylshee" type="text/css">
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
         <style>
             body {
                 font: 400 15px/1.8 Lato, sans-serif;
@@ -155,7 +157,17 @@
             }
             .carousel-caption h3{
                 color:orange;
-                
+
+            }
+            .navbar-default .navbar-toggle{
+                background-color:white;
+            }
+            .day{
+                cursor:pointer;
+            }
+            .day:hover{
+                background-color:black;
+                color:white;
             }
         </style>
     </head>
@@ -167,21 +179,22 @@
                         <span class="sr-only">Toggle navigation</span>
 
                     </button>
-                    <a class="navbar-brand" href="#">PIMP MINUTE</a>
+                    <a class="navbar-brand" href="index.php"><img style="height:200%;margin-top:-2.5%;margin-right:2rem;float:left;" src="logo.png">PIMP MINUTE</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav ">
                         <li><a href="#">COMMANDER UN SERVICE</a></li>
                         <li><a href="#">PROPOSER UN SERVICE</a></li>
-                        <li><a href="#">S'INSCRIRE</a></li>
                     </ul>
                     <form class="navbar-form navbar-right">
                         <div class="form-group">
+
                             <input type="text" name = "login" class="form-control" placeholder="Login">
                             <input type="text" name = "password" class="form-control" placeholder="Password">
                         </div>
-                        <button type="submit" class="btn btn-default">Connexion</button>
+                        <button type="submit" class="btn btn-default">CONNEXION</button>
+                        <button class="btn btn-default" data-toggle="modal" data-target="#myModal">S'INSCRIRE</button>
                     </form>
                 </div><!-- /.navbar-collapse -->
 
@@ -241,11 +254,61 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Inscription</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <label for="firstname">Prénom:</label>
+                            <input type="text" id="firstname" class="form-control" placeholder="Prenom">
+                            <label for="lastname">Nom:</label>
+                            <input type="text" id="lastname" class="form-control" placeholder="Nom">
+                            <label for="sexe">Sexe:</label>
+                            <div id="sexe" class="radio">
+                                <label class="radio-inline"><input type="radio" name="sexe">Homme</label>
+                                <label class="radio-inline"><input type="radio" name="sexe">Femme</label>
+                            </div>
+                            <label for="firstname">Date de naissance:</label>
+                            <input type="text" id="birthdate" class="form-control" placeholder="JJ/MM/AAAA">
+                            <label for="adresse">Adresse:</label>
+                            <input type="text" id="adresse" class="form-control" placeholder="Ex: 5 rue Dupuy">
+                            <label for="codepostal">Code Postal:</label>
+                            <input type="text" id="codepostal" class="form-control" placeholder="75001">
+                            <label for="ville">Ville:</label>
+                            <input type="text" id="ville" class="form-control" placeholder="Ex: Paris,Lyon,Marseille,etc..">
+                            <label for="tel">Téléphone:</label>
+                            <input type="text" id="tel" class="form-control" placeholder="Ex: XX-XX-XX-XX-XX">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" class="form-control" placeholder="xxxx@xxx.com">
+                            <label for="mdp">Mot de Passe:</label>
+                            <input type="password" id="mdp" class="form-control">
+                            <label for="confpassword">Confirmer mot de passe:</label>
+                            <input type="password" id="confpassword" class="form-control">
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Enregistrer</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
         <footer>
-            
+
         </footer>
         <script type="text/javascript">
             $('#myCarousel').carousel();
+            $('#birthdate').datepicker();
         </script>
     </body>
 </html>
