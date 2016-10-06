@@ -9,3 +9,6 @@ DNS racines :
 
 Nameserver 1 : ns1.craym.net
 Nameserver 2 : ns2.craym.net
+
+CONNEXION sur site craym.eu : meite.massoma@hotmail.com 
+MDP : team4pimp
