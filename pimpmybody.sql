@@ -2,10 +2,17 @@
 -- version 4.4.14
 -- http://www.phpmyadmin.net
 --
+<<<<<<< HEAD
 -- Client :  127.0.0.1
 -- Généré le :  Jeu 06 Octobre 2016 à 13:19
 -- Version du serveur :  5.6.26
 -- Version de PHP :  5.6.12
+=======
+-- Client :  localhost
+-- Généré le :  Jeu 06 Octobre 2016 à 15:50
+-- Version du serveur :  5.6.28
+-- Version de PHP :  7.0.10
+>>>>>>> ce0c8c75cd81f9aafeb8eb2ec1e295b6e08f9371
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -135,6 +142,18 @@ INSERT INTO `profession` (`idprof`, `libelle`) VALUES
 (4, 'Maquilleur'),
 (5, 'Barbier');
 
+--
+-- Contenu de la table `profession`
+--
+
+INSERT INTO `profession` (`idprof`, `libelle`) VALUES
+(1, 'Coiffeur'),
+(2, 'Manucure'),
+(3, 'Pedicure'),
+(4, 'Maquilleur'),
+(5, 'Barbier'),
+(6, 'Esthetique');
+
 -- --------------------------------------------------------
 
 --
@@ -170,6 +189,7 @@ CREATE TABLE IF NOT EXISTS `rib` (
 CREATE TABLE IF NOT EXISTS `service` (
   `idservice` int(3) NOT NULL,
   `idprof` int(3) DEFAULT NULL,
+<<<<<<< HEAD
   `libelle` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
@@ -183,6 +203,26 @@ INSERT INTO `service` (`idservice`, `idprof`, `libelle`) VALUES
 (3, 1, 'Coupe occasionnelle'),
 (4, 1, 'Extensions'),
 (5, 1, 'Tresses');
+=======
+  `libelle` varchar(255) DEFAULT NULL,
+  `prix` varchar(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+>>>>>>> ce0c8c75cd81f9aafeb8eb2ec1e295b6e08f9371
+
+--
+-- Contenu de la table `service`
+--
+
+INSERT INTO `service` (`idservice`, `idprof`, `libelle`, `prix`) VALUES
+(1, 1, 'Coloration', '30'),
+(2, 1, 'Coupe régulière', '20'),
+(3, 1, 'Coupe occasionnelle', '27'),
+(4, 2, 'Nails arts', '29'),
+(5, 5, 'taille de barbe', '12'),
+(6, 4, 'maquillage flash jour', '25'),
+(7, 4, 'maquillage flash nuit', '30'),
+(8, 3, 'pose de vernis semi-permanente', '32'),
+(9, 5, 'taille de moustache', '10');
 
 -- --------------------------------------------------------
 
@@ -195,12 +235,14 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `nom` varchar(55) DEFAULT NULL,
   `prenom` varchar(55) DEFAULT NULL,
   `sexe` char(1) DEFAULT NULL,
+  `datedenaissance` date NOT NULL,
   `adresse` varchar(255) DEFAULT NULL,
   `cp` varchar(5) DEFAULT NULL,
   `ville` varchar(55) DEFAULT NULL,
   `email` varchar(55) DEFAULT NULL,
   `mdp` varchar(100) DEFAULT NULL,
   `telephone` varchar(10) DEFAULT NULL
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
@@ -213,6 +255,21 @@ INSERT INTO `utilisateur` (`iduser`, `nom`, `prenom`, `sexe`, `adresse`, `cp`, `
 (3, 'Bridet', 'Vivi', 'F', '12 rue de meaux', '75019', 'Paris', 'vivi@gmail.com', 'belek', '0625008421'),
 (4, 'De niro', 'Jimmy', 'M', '19 rue des bandit ', '95019', 'Sicile', 'Deniro@hotmail.fr', 'thug', '0753195437'),
 (5, 'Spri', 'Gnahore', 'M', '20 rue de fougere', '75020', 'Paris', 'Sprinoir@gmail.com', 'newschool', '0745861574');
+=======
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+>>>>>>> ce0c8c75cd81f9aafeb8eb2ec1e295b6e08f9371
+
+--
+-- Contenu de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`iduser`, `nom`, `prenom`, `sexe`, `datedenaissance`, `adresse`, `cp`, `ville`, `email`, `mdp`, `telephone`) VALUES
+(1, 'Jerome', 'Jouany', 'M', '0000-00-00', '20 avenue ambroise rendu', '75012', 'Paris', 'jerome.jouany@hotmail.com', 'akha', '0625004875'),
+(2, 'Amaskane', 'Elias', 'M', '0000-00-00', '30 rue de saint ouen ', '93270', 'Saint ouen', 'amaskane.elias@gmail.com', 'tahsurtah', '0645193545'),
+(3, 'Bridet', 'Vivi', 'F', '0000-00-00', '12 rue de meaux', '75019', 'Paris', 'vivi@gmail.com', 'belek', '0625008421'),
+(4, 'De niro', 'Jimmy', 'M', '0000-00-00', '19 rue des bandit ', '95019', 'Sicile', 'Deniro@hotmail.fr', 'thug', '0753195437'),
+(5, 'Spri', 'Gnahore', 'M', '0000-00-00', '20 rue de fougere', '75020', 'Paris', 'Sprinoir@gmail.com', 'newschool', '0745861574'),
+(6, 'azer', 'azert', 'o', '0000-00-00', 'é"\'( gyhgufrf', '09855', 'dfghjk', 'dfghjk@dfghjk.fr', '571dd21d12d1695239814e2ddbf6ac4b', '0987654321');
 
 --
 -- Index pour les tables exportées
@@ -315,7 +372,11 @@ ALTER TABLE `notation`
 -- AUTO_INCREMENT pour la table `profession`
 --
 ALTER TABLE `profession`
+<<<<<<< HEAD
   MODIFY `idprof` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+=======
+  MODIFY `idprof` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+>>>>>>> ce0c8c75cd81f9aafeb8eb2ec1e295b6e08f9371
 --
 -- AUTO_INCREMENT pour la table `reclamation`
 --
@@ -335,7 +396,11 @@ ALTER TABLE `service`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
+<<<<<<< HEAD
   MODIFY `iduser` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+=======
+  MODIFY `iduser` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+>>>>>>> ce0c8c75cd81f9aafeb8eb2ec1e295b6e08f9371
 --
 -- Contraintes pour les tables exportées
 --
@@ -352,6 +417,7 @@ ALTER TABLE `asprof`
 --
 ALTER TABLE `carte`
   ADD CONSTRAINT `carte_ibfk_1` FOREIGN KEY (`iduser`) REFERENCES `utilisateur` (`iduser`);
+<<<<<<< HEAD
 
 --
 -- Contraintes pour la table `commande`
@@ -388,3 +454,5 @@ ALTER TABLE `service`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+=======
+>>>>>>> ce0c8c75cd81f9aafeb8eb2ec1e295b6e08f9371
