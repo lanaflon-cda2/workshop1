@@ -117,6 +117,12 @@ CREATE TABLE IF NOT EXISTS `profession` (
   PRIMARY KEY (`idprof`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+INSERT INTO `profession` (`idprof`, `libelle`) VALUES
+(1, 'Coiffeur'),
+(2, 'Manucure'),
+(3, 'Pedicure'),
+(4, 'Maquilleur'),
+(5, 'Barbier');
 -- --------------------------------------------------------
 
 --
@@ -160,6 +166,12 @@ CREATE TABLE IF NOT EXISTS `service` (
   PRIMARY KEY (`idservice`),
   KEY `idprof` (`idprof`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `service` (`idservice`, `idprof`, `libelle`) VALUES
+(1, 1, 'Coloration'),
+(2, 1, 'Coupe régulière'),
+(3, 1, 'Coupe occasionnelle'),
+(4, 1, 'Extensions'),
+(5, 1, 'Tresses');
 
 -- --------------------------------------------------------
 
