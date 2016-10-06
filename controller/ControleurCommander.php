@@ -31,13 +31,13 @@ class ControleurCommander {
         
     }
     public function display(){
-        //if($this->_page == $this->_command){
+        if($this->_page == $this->_command){
             $modele = new Profession();
             $professions=$modele->getProfession();
             require_once 'view/commandView.php';
-        //}
-        //else{
-            //require_once 'view/inscriptionView.php';
-        //}
+        }
+        else{
+            require_once 'view/inscriptionView.php';
+        }
     }
 }

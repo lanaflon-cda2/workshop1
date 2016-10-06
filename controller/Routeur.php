@@ -1,8 +1,13 @@
 <?php
-
+session_start();
 require_once 'controller/ControllerAcceuil.php';
-require_once 'controller/controleurCommander.php';
-require_once 'controller/controleurProposition.php';
+require_once 'controller/ControleurCommander.php';
+require_once 'controller/ControleurProposition.php';
+require_once 'controller/ControleurResumeCommande.php';
+require_once 'controller/ControleurValiderCommande.php';
+require_once 'controller/ControleurProfil.php';
+require_once 'Controller/ControleurInscription.php';
+require_once 'Controller/ControleurConnexion.php';
 /*require_once 'Controleur/ControleurBillet.php';
 require_once 'Controleur/ControleurInscription.php';
 require_once 'Controleur/ControleurVisiteur.php';
@@ -15,6 +20,11 @@ class Routeur {
     private $ctrlAccueil;
     private $ctrlCommander;
     private $ctrlProposer;
+    private $ctrlResumeCommande;
+    private $ctrlValiderCommande;
+    private $ctrlProfile;
+    private $ctrlConnexion;
+    private $ctrlInscription;
     //private $ctrlInscription;
     //private $ctrlProfil;
     //private $ctrlConnexion;
@@ -26,14 +36,16 @@ class Routeur {
         $this->ctrlAccueil = new ControleurAccueil();
         $this->ctrlCommander = new ControleurCommander ();
         $this->ctrlProposer = new ControleurProposition();
+        $this->ctrlResumeCommande = new ControleurResumeCommande();
+        $this->ctrlValiderCommande = new ControleurValiderCommande();
+        $this->ctrlProfile = new ControleurProfil();
+        $this->ctrlConnexion= new ControleurConnexion();
+        $this->ctrlInscription = new ControleurInscription();
         /*$this->ctrlInscription = new ControleurInscription();
         $this->ctrlProfil= new ControleurProfil();
         $this->ctrlConnexion= new ControleurConnexion();
         $this->ctrlAdmin= new ControleurAdmin();
         $this->ctrlVisiteur= new ControleurVisiteur();*/
-
-
-      session_start();
     }
 
     // Route une requête entrante : exécution l'action associée
@@ -41,6 +53,28 @@ class Routeur {
         try {
             
             if (isset($_GET['action'])) {
+                 if ($_GET['action'] == 'seconnecter') {
+                
+                    if(isset($_POST['connexion']))
+                    {
+                        echo "connexion";
+                        $email = $this->getParametre($_POST, 'email');
+                        $mdp = $this->getParametre($_POST, 'mdp');
+                        
+                        $connexions=$this->ctrlConnexion->connexion($email, $mdp);
+     
+                         if (is_array($connexions))
+                         {
+                            echo "vous êtes connecté.";
+                     
+                         }
+                         else
+                         {
+                            echo "Mauvais mot de passe ou mauvais email.";
+                         }
+                    }
+                    header('location:index.php');
+                }
                /* if ($_GET['action']=='inscription') {
                     $this->ctrlInscription->inscription();
 
@@ -84,10 +118,7 @@ class Routeur {
                     $this->ctrlAdmin->admin($nom, $prenom, $sexe, $adresse, $cp, $ville, $email, $mdp , $telephone, $idprof);
                 }
                 }
-                elseif ($_GET['action']=='deconnexion') {
-                    $this->ctrlConnexion->deconnexion();
                 
-                }
                 else if ($_GET['action'] == 'commenter') {
                     $auteur = $this->getParametre($_POST, 'auteur');
                     $contenu = $this->getParametre($_POST, 'contenu');
@@ -152,11 +183,54 @@ class Routeur {
                   $this->ctrlProfil->voirprofil();
 
                 }*/
-                if($_GET['action'] == 'proposer'){
+                elseif ($_GET['action'] == 'sinscrire') {
+                    $nom = $this->getParametre($_POST, 'nom');
+                    $prenom = $this->getParametre($_POST, 'prenom');
+                    $sexe = $this->getParametre($_POST, 'sexe');
+                    $datedenaissance = $this->getParametre($_POST, 'datedenaissance');
+                    $adresse = $this->getParametre($_POST, 'adresse');
+                    $cp = $this->getParametre($_POST, 'cp');
+                    $ville = $this->getParametre($_POST, 'ville');
+                    $telephone = $this->getParametre($_POST, 'telephone');
+                    $email = $this->getParametre($_POST, 'email');
+                    $mdp = $this->getParametre($_POST, 'mdp');
+                    $mdp =md5($mdp);
+                                        
+                    $etat=$this->ctrlInscription->inscription($email);
+                         
+                        if($etat)
+                        {
+                            echo 'test';
+                        }
+                        else{
+                            
+                            $this->ctrlInscription->utilisateur($nom, $prenom, $sexe, $datedenaissance, $adresse, $cp, $ville, $email, $mdp , $telephone);
+                            $this->ctrlConnexion->connexion($email,$mdp);
+                            header('location:index.php');
+                        }   
+
+                    
+                }
+                elseif($_GET['action'] == 'proposer'){
                     $this->ctrlProposer->display();
+                }
+                elseif($_GET['action']=='resumeCommande'){
+                    $this->ctrlResumeCommande->display();
                 }
                 elseif($_GET['action'] == 'commander'){
                     $this->ctrlCommander->display();
+                }
+                elseif ($_GET['action']=='deconnexion') {
+                    $this->ctrlConnexion->deconnexion();
+                
+                }
+                elseif($_GET['action'] =='validerCommande'){
+                    
+                    $this->ctrlValiderCommande->display();
+                }
+                elseif($_GET['action'] == 'profile'){
+                    
+                    $this->ctrlProfile->voirprofil();
                 }
                 else
                     throw new Exception("Action non valide");

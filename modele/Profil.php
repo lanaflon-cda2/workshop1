@@ -5,8 +5,8 @@ require_once 'Modele/Modele.php';
 class Profil extends Modele {
 
     public function seeProfil($iduser) {
-        $sql = "SELECT  iduser, nom, prenom , sexe, adresse, cp, ville, email, mdp, telephone, idprof FROM user where iduser=?; ";
-        $commentaires = $this->executerRequete($sql, array($idp));
+        $sql = "SELECT  iduser, nom, prenom , sexe, adresse, cp, ville, email, telephone FROM utilisateur where iduser=?; ";
+        $commentaires = $this->executerRequete($sql, array($iduser))->fetchAll();
         return $commentaires;
     }
 

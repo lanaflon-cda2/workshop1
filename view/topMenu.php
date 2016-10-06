@@ -13,8 +13,16 @@
                 <li><a href="index.php?action=proposer">PROPOSER UN SERVICE</a></li>
             </ul>
             <div class="navbar-form navbar-right">
+                <?php 
+                    if(!isset($_SESSION['iduser'])){?>
                 <button class="btn btn-default" data-toggle="modal" data-target="#modalConnexion">CONNEXION</button>
                 <button class="btn btn-default" data-toggle="modal" data-target="#myModal">INSCRIPTION</button>
+                    <?php }else{?>
+                <a href="index.php?action=profile&iduser=<?php echo $_SESSION['iduser'];?>" class="btn btn-primary">Mon Profil</a>
+                <a href="index.php?action=deconnexion" class="btn btn-primary">Se déconnecter</a>
+                <?php
+                    }
+                ?>
             </div>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

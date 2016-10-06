@@ -1,17 +1,17 @@
 <?php
 
-require_once 'Modele/Modele.php';
+require_once 'modele/Modele.php';
 
 class Connexion extends Modele {
 
-    public function wantConnexion($email, $mdp) {
-        $sql = "SELECT nom, prenom , adresse, cp, ville, mdp, telephone, email, iduser, idprof FROM utilisateur where email='$email' and mdp='$mdp';";
-        $connexions = $this->executerRequete($sql);
+    public function wantConnexion($email, $mdp) 
+    {
+        $sql = "SELECT nom, prenom, sexe, datedenaissance, adresse, cp, ville, mdp, telephone, email, iduser FROM utilisateur where email=? and mdp=?;";
 
+        $connexions = $this->executerRequete($sql,array($email,$mdp));
 
-        return $connexions->fetch();
+        $test=$connexions->fetch();
+        return $test;
     }
-
-
 }
 ?>

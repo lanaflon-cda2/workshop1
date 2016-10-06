@@ -82,6 +82,7 @@ h3, h4 {
     color: #f1f1f1;
     border-radius: 0;
     transition: .2s;
+    ;
 }
 .btn:hover, .btn:focus {
     border: 1px solid #333;
@@ -182,4 +183,8 @@ textarea {
 .day:hover{
     background-color: black;
     color: white;
+}
+.margin-btn{
+   margin-bottom:2vh;
+    margin-top:2vh
 }

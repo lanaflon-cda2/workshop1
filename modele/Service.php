@@ -16,4 +16,8 @@ class Service extends Modele{
         $sql = 'SELECT * FROM service WHERE idprof=?';
         return json_encode($this->executerRequete($sql,array($id))->fetchAll());
     }
+    public function getService($id){
+        $sql = 'SELECT * FROM service WHERE idservice=?';
+        return $this->executerRequete($sql,array($id))->fetchAll();
+    }
 }
