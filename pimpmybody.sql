@@ -32,12 +32,15 @@ CREATE TABLE `service` (
 --
 
 INSERT INTO `service` (`idservice`, `idprof`, `libelle`, `prix`) VALUES
-(1, 1, 'Coloration', ''),
-(2, 1, 'Coupe régulière', ''),
-(3, 1, 'Coupe occasionnelle', ''),
-(4, 1, 'Extensions', ''),
-(5, 1, 'Tresses', '');
-
+(1, 1, 'Coloration', '30'),
+(2, 1, 'Coupe régulière', '20'),
+(3, 1, 'Coupe occasionnelle', '27'),
+(4, 2, 'Nails arts', '29'),
+(5, 5, 'taille de barbe', '12'),
+(6, 4, 'maquillage flash jour', '25'),
+(7, 4, 'maquillage flash nuit', '30'),
+(8, 3, 'pose de vernis semi-permanente', '32'),
+(9, 5, 'taille de moustache', '10');
 --
 -- Index pour les tables exportées
 --
